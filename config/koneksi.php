@@ -1,12 +1,8 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "kasir";
+$koneksi = mysqli_connect("localhost","root","","kasir");
 
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-if ($conn->connect_error) {
-    die("koneksi gagal: " . $conn->connect_error);
+if (mysqli_connect_error()){
+	echo "Koneksi database gagal : " . mysqli_connect_error();
 }
+
 ?>

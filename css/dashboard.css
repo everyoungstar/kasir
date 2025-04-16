@@ -9,6 +9,7 @@
 
 body {
     display: flex;
+    background: #FEF9E1;
 }
 
 .sidebar {
@@ -16,13 +17,13 @@ body {
     top: 0;
     left: 0;
     bottom: 0;
-    width: 110px;
+    width: 1o0px;
     height: 100vh;
     padding: 0 1.7rem;
     color: #fff;
     overflow: hidden;
     transition: all 0.5s linear;
-    background: rgba(113, 99, 186, 255);
+    background: #A31D1D;
 }
 
 .sidebar:hover {
@@ -75,7 +76,6 @@ body {
 
 .main--content {
     position: relative;
-    background: #ebe9e9;
     width: 100%;
     padding: 1rem;
 }
@@ -99,7 +99,7 @@ body {
 }
 
 .header--title {
-    color: rgba(113, 99, 186, 255);
+    color: #A31D1D;
 }
 
 .user--info {
@@ -123,4 +123,79 @@ body {
     padding: 10px;
 }
 
-/* card container*/
+/* ****** card container ****** */
+
+.card--container {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 10px;
+}
+
+.card--wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.main--title {
+    color: #A31D1D;
+    padding-bottom: 10px;
+    font-size: 15px;
+}
+
+.data--card {
+    background: rgba(113, 99, 186, 255);
+    border-radius: 10px;
+    padding: 1.2rem;
+    width: 290px;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all 0.5s ease-in-out;
+}
+
+.data--card:hover {
+    transform: translate(-5px);
+}
+
+.card--header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.amount {
+    display: flex;
+    flex-direction: column;
+}
+
+.title {
+    font-size: 12px;
+    font-weight: 200;
+}
+
+.amount--value {
+    font-size: 24px;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 600;
+}
+
+/* color css*/
+
+.red {
+    background: #a31d1d30;
+}
+
+.cream {
+    background: #fef9e132;
+}
+
+.dark-red {
+    background: #6d23232c;
+}
+
+.orange {
+    background: #f9392733;
+}

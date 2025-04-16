@@ -1,30 +1,35 @@
-<?php
+<?php 
 session_start();
+
 include 'koneksi.php';
 
-if ($_SERVER['REQUEST_METHOD']  == 'POST') {
-    $username = $_POST['username'];
-    $username = $_POST['password'];
+$username = $_POST['username'];
+$password = md5($_POST['password']);
 
-$sql = "SELECT * FROM user WHERE username = ?";
-$stmt = $conn->prepare($sql);
-$stmt->bind_param("s", $username);
-$stmt->execute();
-$result = $stmt->get_result();
+$login = mysqli_query($koneksi,"select * from petugas where username='$username' and password='$password'");
+$cek = mysqli_num_rows($login);
 
-if ($result->num_rows > 0) {
-    $user = $result->fetch_assoc();
-    //if (password_verify($password, $user['password']))
-    if ($password == $user['password']) {
-        $_SESSION['username'] = $user['username'];
-        header('Location: dashboard.php');
-        exit();
-    } else {
-        echo "Password Salah.";
-    }
-} else {
-    echo "Username tidak ditemukan.";
+if($cek > 0){
+
+	$data = mysqli_fetch_assoc($login);
+
+	if($data['level']=="1"){
+
+		$_SESSION['username'] = $username;
+		$_SESSION['level'] = "1";
+		header("location:../admin/dashboard.php");
+
+	}else if($data['level']=="2"){
+		$_SESSION['username'] = $username;
+		$_SESSION['level'] = "2";
+		header("location:../petugas/dashboard.php");
+		
+	}else{
+
+		header("location:../pages/login.php?pesan=gagal");
+	}	
+}else{
+	header("location:../pages/login.php?pesan=gagal");
 }
 
-}
-?>  
+?>

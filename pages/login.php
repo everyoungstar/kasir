@@ -15,14 +15,13 @@ session_start();
     <section id="login">
         <div class="login-left">
             <div class="text-hero">
-
             </div>
-            <img src="" alt="hero-login">
+            <img src="../asset/bcgroun.jpg" alt="hero-login">
         </div>
 
         <div class="login-right">
             <div class="login-form">
-                <img src="" alt="logo">
+                <img src="../asset/popmart.jpg" alt="logo">
 
                 <form action="../config/proses-login.php" method="post">
                     <div class="text-login">
